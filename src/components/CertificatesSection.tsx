@@ -83,8 +83,8 @@ const CertificatesSection: React.FC = () => {
   };
 
   return (
-    <section id="certificates" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
+    <section id="certificates" className="py-16 bg-white dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -103,7 +103,7 @@ const CertificatesSection: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           {certificates.map((certificate) => (
             <motion.div
@@ -116,7 +116,7 @@ const CertificatesSection: React.FC = () => {
                 <img
                   src={certificate.image}
                   alt={certificate.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-40 xs:h-48 sm:h-56 md:h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute top-4 right-4">
                   {certificate.verified && (
@@ -130,7 +130,7 @@ const CertificatesSection: React.FC = () => {
                     </motion.div>
                   )}
                 </div>
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
                   <motion.button
                     onClick={() => setSelectedCertificate(certificate)}
                     whileHover={{ scale: 1.1 }}
@@ -152,8 +152,8 @@ const CertificatesSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
+              <div className="p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 gap-2">
                   <div className="flex items-center space-x-2">
                     <Award className="text-blue-600" size={20} />
                     <span className="text-sm font-semibold text-blue-600 bg-blue-100 dark:bg-blue-900/30 px-2 py-1 rounded-full">
@@ -194,7 +194,7 @@ const CertificatesSection: React.FC = () => {
                   )}
                 </div>
 
-                <div className="flex space-x-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <motion.button
                     onClick={() => setSelectedCertificate(certificate)}
                     whileHover={{ scale: 1.05 }}
@@ -226,85 +226,84 @@ const CertificatesSection: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
               onClick={() => setSelectedCertificate(null)}
             >
               <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
+                initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
+                exit={{ scale: 0.95, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-lg sm:max-w-2xl md:max-w-4xl max-h-[90vh] overflow-y-auto"
               >
                 <div className="relative">
                   <iframe
                     src={selectedCertificate.image}
                     title={selectedCertificate.title}
-                    className="w-full h-64 md:h-80 object-cover"
+                    className="w-full h-56 xs:h-64 sm:h-72 md:h-80 object-cover"
                   />
                   <motion.button
                     onClick={() => setSelectedCertificate(null)}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full backdrop-blur-sm"
+                    className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-black/50 text-white p-2 rounded-full backdrop-blur-sm"
                   >
                     <X size={24} />
                   </motion.button>
-                  
                   {selectedCertificate.verified && (
-                    <div className="absolute top-4 left-4 bg-green-500 text-white p-2 rounded-full shadow-lg flex items-center space-x-2">
+                    <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-green-500 text-white p-2 rounded-full shadow-lg flex items-center space-x-2">
                       <CheckCircle size={20} />
-                      <span className="text-sm font-medium">Verified</span>
+                      <span className="text-xs sm:text-sm font-medium">Verified</span>
                     </div>
                   )}
                 </div>
 
-                <div className="p-8">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
-                    <div className="mb-4 md:mb-0">
-                      <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                <div className="p-4 sm:p-8">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6 gap-4">
+                    <div className="mb-2 md:mb-0">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">
                         {selectedCertificate.title}
                       </h3>
-                      <p className="text-xl text-blue-600 dark:text-blue-400 mb-2">
+                      <p className="text-lg sm:text-xl text-blue-600 dark:text-blue-400 mb-2">
                         {selectedCertificate.issuer}
                       </p>
-                      <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-400">
+                      <div className="flex flex-wrap items-center gap-2 text-gray-600 dark:text-gray-400">
                         <div className="flex items-center space-x-1">
                           <Calendar size={16} />
                           <span>{selectedCertificate.date}</span>
                         </div>
-                        <div className="text-sm">
+                        <div className="text-xs sm:text-sm">
                           ID: {selectedCertificate.credentialId}
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex space-x-3">
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                       <motion.button
                         onClick={() => handleDownload(selectedCertificate)}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300"
+                        className="flex items-center space-x-2 bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300"
                       >
                         <Download size={20} />
-                        <span>Download PDF</span>
+                        <span className="text-xs sm:text-base">Download PDF</span>
                       </motion.button>
                     </div>
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 text-base sm:text-lg leading-relaxed">
                     {selectedCertificate.description}
                   </p>
 
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                    <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3">
                       Skills Demonstrated
                     </h4>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-2 sm:gap-3">
                       {selectedCertificate.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium"
+                          className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium"
                         >
                           {skill}
                         </span>
