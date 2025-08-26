@@ -12,8 +12,8 @@ const HeroSection: React.FC = () => {
       vantaEffectRef.current = null;
     }
 
-    if (vantaRef.current && (window as any).VANTA) {
-      vantaEffectRef.current = (window as any).VANTA.NET({
+   if (vantaRef.current && (window as any).VANTA && (window as any).VANTA.BIRDS) {
+      vantaEffectRef.current = (window as any).VANTA.BIRDS({
         el: vantaRef.current,
         mouseControls: true,
         touchControls: true,
@@ -22,11 +22,8 @@ const HeroSection: React.FC = () => {
         minWidth: 200.0,
         scale: 1.0,
         scaleMobile: 1.0,
-        color: 0xff0000,
-        backgroundColor: 0x000000,
-        points: 17.0,
-        maxDistance: 22.0,
-        spacing: 14.0,
+        backgroundColor: 0x0d1831,
+        color1: 0x371c1c
       });
     }
 

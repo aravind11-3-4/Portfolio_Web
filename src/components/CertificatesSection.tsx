@@ -23,7 +23,7 @@ const certificates: Certificate[] = [
     issuer: "GitHub",
     date: "June 2024",
     credentialId: "GHF-2024-001",
-    image: "/GitHubFoundations_Badge20250820-31-2pyyn9.pdf",
+    image: "/github_foundations.jpg",
     description: "Awarded for completing the GitHub Foundations course, demonstrating proficiency in version control and collaboration workflows.",
     skills: ["Git", "Version Control", "Collaboration"],
     verified: true
@@ -31,23 +31,23 @@ const certificates: Certificate[] = [
   {
     id: 2,
     title: "Proof of Concept",
-    issuer: "Institution Name",
-    date: "May 2024",
+    issuer: "Kongu Engineering College",
+    date: "Dec 2024",
     credentialId: "ARAVIND-2024-002",
-    image: "/Aravind_certification_2.pdf",
-    description: "Certification for outstanding achievement in the specified field.",
+    image: "/proof_of_concept.jpg",
+    description: "Prize in Proof of Concept at Kongu Engineering College, Perundurai, Erode.",
     skills: ["Achievement", "Dedication"],
     verified: true
   },
   {
     id: 3,
-    title: " MySQL Implementation Certified Associate",
-    issuer: "Certifying Authority",
-    date: "April 2024",
+    title: "MySQL Implementation Certified Associate",
+    issuer: "Oracle University",
+    date: "July 2025",
     credentialId: "ECERT-2024-003",
-    image: "/eCertificate.pdf",
-    description: "eCertificate awarded for successful completion of the program.",
-    skills: ["Completion", "Certification"],
+    image: "/oracle_mysql.jpg",
+    description: "Oracle Certified Associate for MySQL Implementation.",
+    skills: ["MySQL", "Database", "Certification"],
     verified: true
   }
 ];

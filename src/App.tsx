@@ -3,6 +3,7 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
+import EducationSection from './components/EducationSection';
 import PortfolioSection from './components/PortfolioSection';
 import SkillsSection from './components/SkillsSection';
 import CertificatesSection from './components/CertificatesSection';
@@ -15,6 +16,7 @@ function App() {
         <Navigation />
         <HeroSection />
         <AboutSection />
+        <EducationSection />
         <PortfolioSection />
         <SkillsSection />
         <CertificatesSection />
