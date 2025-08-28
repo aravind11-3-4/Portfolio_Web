@@ -5,7 +5,6 @@ import { useRef } from 'react';
 
 interface Skill {
   name: string;
-  percentage: number;
   icon: string;
   color: string;
 }
@@ -14,32 +13,32 @@ const categorizedSkills: { category: string; items: Skill[] }[] = [
   {
     category: 'Programming Languages',
     items: [
-      { name: 'C', percentage: 70, icon: '💻', color: 'from-blue-500 to-cyan-500' },
-      { name: 'Java', percentage: 75, icon: '☕', color: 'from-amber-500 to-orange-500' },
-      { name: 'Python', percentage: 80, icon: '🐍', color: 'from-green-500 to-emerald-500' },
+      { name: 'C', icon: 'https://icon.icepanel.io/Technology/svg/C.svg', color: 'shadow-blue-500/50' },
+      { name: 'Java', icon: 'https://icon.icepanel.io/Technology/svg/Java.svg', color: 'shadow-orange-500/50' },
+      { name: 'Python', icon: 'https://icon.icepanel.io/Technology/svg/Python.svg', color: 'shadow-green-500/50' },
     ],
   },
   {
     category: 'Frontend Languages',
     items: [
-      { name: 'HTML', percentage: 90, icon: '🌐', color: 'from-red-500 to-orange-500' },
-      { name: 'CSS', percentage: 85, icon: '🎨', color: 'from-blue-500 to-indigo-500' },
-      { name: 'ReactJS', percentage: 80, icon: '⚛️', color: 'from-cyan-500 to-blue-600' },
+      { name: 'HTML', icon: 'https://cdn.simpleicons.org/html5/E34F26', color: 'shadow-red-500/50' },
+      { name: 'CSS', icon: 'https://icon.icepanel.io/Technology/svg/CSS3.svg', color: 'shadow-blue-500/50' },
+      { name: 'ReactJS', icon: 'https://cdn.simpleicons.org/react/61DAFB', color: 'shadow-cyan-500/50' },
     ],
   },
   {
     category: 'Database',
     items: [
-      { name: 'MySQL', percentage: 75, icon: '🗄️', color: 'from-yellow-500 to-amber-600' },
+      { name: 'MySQL', icon: 'https://cdn.simpleicons.org/mysql/4479A1', color: 'shadow-yellow-500/50' },
     ],
   },
   {
     category: 'Tools',
     items: [
-      { name: 'Git', percentage: 85, icon: '🔧', color: 'from-gray-500 to-gray-700' },
-      { name: 'GitHub', percentage: 85, icon: '🐙', color: 'from-slate-500 to-gray-700' },
-      { name: 'Jenkins', percentage: 70, icon: '⚙️', color: 'from-rose-500 to-pink-600' },
-      { name: 'Docker', percentage: 70, icon: '🐳', color: 'from-sky-500 to-blue-600' },
+      { name: 'Git', icon: 'https://cdn.simpleicons.org/git/F05032', color: 'shadow-gray-500/50' },
+      { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/181717', color: 'shadow-slate-500/50' },
+      { name: 'Jenkins', icon: 'https://icon.icepanel.io/Technology/svg/Jenkins.svg', color: 'shadow-rose-500/50' },
+      { name: 'Docker', icon: 'https://cdn.simpleicons.org/docker/2496ED', color: 'shadow-sky-500/50' },
     ],
   },
 ];
@@ -90,89 +89,20 @@ const SkillsSection: React.FC = () => {
               variants={containerVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"
             >
               {items.map((skill, index) => (
                 <motion.div
                   key={skill.name}
                   variants={itemVariants}
                   whileHover={{ scale: 1.05, y: -10 }}
-                  className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className={`bg-white dark:bg-gray-900 rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:${skill.color}`}
                 >
-                  <div className="text-center mb-4">
-                    <div className="text-4xl mb-3">{skill.icon}</div>
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  <div className="flex flex-col items-center justify-center text-center">
+                    <img src={skill.icon} alt={skill.name} className="w-12 h-12 md:w-16 md:h-16 mb-4" />
+                    <h4 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white">
                       {skill.name}
                     </h4>
-                  </div>
-
-                  <div className="relative">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                        Proficiency
-                      </span>
-                      <span className="text-sm font-bold text-gray-900 dark:text-white">
-                        {skill.percentage}%
-                      </span>
-                    </div>
-                    
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${skill.percentage}%` } : { width: 0 }}
-                        transition={{ duration: 1.5, delay: (catIndex * 0.1) + index * 0.1, ease: "easeOut" }}
-                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative`}
-                      >
-                        <motion.div
-                          animate={{ x: [0, 10, 0] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                          className="absolute right-0 top-0 h-full w-2 bg-white/30 rounded-full"
-                        />
-                      </motion.div>
-                    </div>
-                  </div>
-
-                  {/* Circular Progress */}
-                  <div className="mt-6">
-                    <div className="relative w-20 h-20 mx-auto">
-                      <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                        <circle
-                          cx="50"
-                          cy="50"
-                          r="40"
-                          stroke="currentColor"
-                          strokeWidth="8"
-                          fill="transparent"
-                          className="text-gray-200 dark:text-gray-700"
-                        />
-                        <motion.circle
-                          cx="50"
-                          cy="50"
-                          r="40"
-                          stroke="url(#gradient)"
-                          strokeWidth="8"
-                          fill="transparent"
-                          strokeLinecap="round"
-                          strokeDasharray="251.2"
-                          initial={{ strokeDashoffset: 251.2 }}
-                          animate={isInView ? { 
-                            strokeDashoffset: 251.2 - (251.2 * skill.percentage) / 100 
-                          } : { strokeDashoffset: 251.2 }}
-                          transition={{ duration: 2, delay: (catIndex * 0.1) + index * 0.1, ease: "easeOut" }}
-                        />
-                        <defs>
-                          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#3B82F6" />
-                            <stop offset="100%" stopColor="#8B5CF6" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-lg font-bold text-gray-900 dark:text-white">
-                          {skill.percentage}%
-                        </span>
-                      </div>
-                    </div>
                   </div>
                 </motion.div>
               ))}
