@@ -56,36 +56,13 @@ const HeroSection: React.FC = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div ref={vantaRef} className="absolute inset-0 z-0" />
-      
-      {/* Floating background images (above Vanta, behind content) */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none">
-        {floatingImages.map((img, index) => (
-          <motion.img
-            key={index}
-            src={img.src}
-            alt="decorative"
-            initial={{ x: 0, y: 0, rotate: 0, opacity: 0.08 }}
-            animate={{
-              x: [0, 15, -10, 0],
-              y: [0, -10, 10, 0],
-              rotate: [0, 6, -6, 0],
-              opacity: [0.06, 0.1, 0.08, 0.06],
-            }}
-            transition={{ duration: img.duration, repeat: Infinity, ease: 'easeInOut' }}
-            className="hidden md:block absolute opacity-10"
-            style={{ top: img.top, left: img.left, width: img.size, height: img.size, filter: 'blur(1px)' }}
-          />
-        ))}
-      </div>
-      
-      <div className="relative z-10 text-center px-4">
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 md:pt-0">
+      <div className="relative z-10 text-center px-4 flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-8"
+          className="mb-8 order-2 md:order-1"
         >
           <motion.img
             initial={{ scale: 0, rotate: -180 }}
@@ -167,7 +144,8 @@ const HeroSection: React.FC = () => {
           </motion.div>
         </motion.div>
       </div>
-
+      
+      {/* Scroll Down Arrow */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -108,7 +108,7 @@ const ContactSection: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8"
           >
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 shadow-xl">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Get in Touch
               </h3>
@@ -129,7 +129,7 @@ const ContactSection: React.FC = () => {
                     <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50 transition-colors duration-300">
                       <info.icon className="text-blue-600 dark:text-blue-400" size={24} />
                     </div>
-                    <div>
+                    <div className="break-words">
                       <div className="text-sm text-gray-500 dark:text-gray-400">{info.label}</div>
                       <div className="text-lg font-semibold text-gray-900 dark:text-white">{info.value}</div>
                     </div>
@@ -195,7 +195,7 @@ const ContactSection: React.FC = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 shadow-xl"
           >
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               Send a Message
