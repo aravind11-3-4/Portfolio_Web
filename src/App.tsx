@@ -8,13 +8,11 @@ import PortfolioSection from './components/PortfolioSection';
 import SkillsSection from './components/SkillsSection';
 import CertificatesSection from './components/CertificatesSection';
 import ContactSection from './components/ContactSection';
-import BackgroundAnimation from './components/BackgroundAnimation';
 
 function App() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-        <BackgroundAnimation />
         <Navigation />
         <HeroSection />
         <AboutSection />

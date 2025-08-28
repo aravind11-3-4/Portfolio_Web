@@ -1,8 +1,40 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
+  const vantaRef = useRef<HTMLDivElement>(null);
+  const vantaEffectRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (vantaEffectRef.current) {
+      vantaEffectRef.current.destroy();
+      vantaEffectRef.current = null;
+    }
+
+   if (vantaRef.current && (window as any).VANTA && (window as any).VANTA.BIRDS) {
+      vantaEffectRef.current = (window as any).VANTA.BIRDS({
+        el: vantaRef.current,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        backgroundColor: 0x0d1831,
+        color1: 0x371c1c
+      });
+    }
+
+    return () => {
+      if (vantaEffectRef.current) {
+        vantaEffectRef.current.destroy();
+        vantaEffectRef.current = null;
+      }
+    };
+  }, []);
+
   const scrollToAbout = () => {
     const aboutSection = document.querySelector('#about');
     if (aboutSection) {
@@ -13,8 +45,40 @@ const HeroSection: React.FC = () => {
   // Use URL-encoded path since the filename contains a space
   const resumeUrl = '/24MCR005_ARAVINDHASAMY%20R.pdf';
 
+  // Floating background images configuration
+  const floatingImages = [
+    { src: 'https://cdn.simpleicons.org/github', size: 64, top: '12%', left: '6%', duration: 16 },
+    { src: 'https://cdn.simpleicons.org/java', size: 56, top: '28%', left: '82%', duration: 18 },
+    { src: 'https://cdn.simpleicons.org/python', size: 72, top: '62%', left: '12%', duration: 20 },
+    { src: 'https://cdn.simpleicons.org/react', size: 60, top: '70%', left: '72%', duration: 17 },
+    { src: 'https://cdn.simpleicons.org/tailwindcss', size: 66, top: '42%', left: '46%', duration: 22 },
+    { src: 'https://cdn.simpleicons.org/typescript', size: 58, top: '18%', left: '60%', duration: 19 },
+  ];
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div ref={vantaRef} className="absolute inset-0 z-0" />
+      
+      {/* Floating background images (above Vanta, behind content) */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        {floatingImages.map((img, index) => (
+          <motion.img
+            key={index}
+            src={img.src}
+            alt="decorative"
+            initial={{ x: 0, y: 0, rotate: 0, opacity: 0.08 }}
+            animate={{
+              x: [0, 15, -10, 0],
+              y: [0, -10, 10, 0],
+              rotate: [0, 6, -6, 0],
+              opacity: [0.06, 0.1, 0.08, 0.06],
+            }}
+            transition={{ duration: img.duration, repeat: Infinity, ease: 'easeInOut' }}
+            className="hidden md:block absolute opacity-10"
+            style={{ top: img.top, left: img.left, width: img.size, height: img.size, filter: 'blur(1px)' }}
+          />
+        ))}
+      </div>
       
       <div className="relative z-10 text-center px-4">
         <motion.div
