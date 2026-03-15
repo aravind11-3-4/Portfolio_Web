@@ -27,14 +27,14 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
-                AnimatorPro
+                Aravindhasamy R | Full Stack / Frontend Developer
               </div>
               <p className="text-gray-400 mb-6">
-                Bringing imagination to life through stunning visual storytelling
+                Passionate about building responsive and user-friendly web applications.
               </p>
               <div className="border-t border-gray-800 pt-6">
                 <p className="text-gray-500">
-                  © 2024 Alex Motion. All rights reserved.
+                 © 2026 Aravindhasamy R. Built with HTML, CSS, JavaScript.
                 </p>
               </div>
             </div>

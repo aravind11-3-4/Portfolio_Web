@@ -5,14 +5,14 @@ const EducationSection: React.FC = () => {
   const education = [
     {
       school: 'Master of Computer Applications',
-      institution: 'Your University Name',
-      period: '2023 – 2025',
+      institution: 'Kongu Engineering College',
+      period: '2024 – 2026',
       details: 'Focus on full‑stack development, algorithms, and cloud fundamentals.'
     },
     {
       school: 'Bachelor of Science in Computer Science',
-      institution: 'Your College Name',
-      period: '2020 – 2023',
+      institution: 'Dr. N.G.P Arts and Science College',
+      period: '2021 – 2024',
       details: 'Core CS subjects, data structures, OOP, and web technologies.'
     }
   ];

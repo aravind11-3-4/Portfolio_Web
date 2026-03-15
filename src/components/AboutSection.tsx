@@ -48,20 +48,15 @@ const AboutSection: React.FC = () => {
               className="space-y-4 text-lg text-gray-600 dark:text-gray-300"
             >
               <motion.p variants={itemVariants}>
-                With over 8 years of experience in animation and motion graphics, I specialize in creating 
-                compelling visual narratives that captivate audiences and bring brands to life.
+                currently pursuing my Master of Computer Applications from Kongu Engineering College. I completed my Bachelor of Computer Applications from Dr. N.G.P Arts and Science College. During my academic journey, I developed a strong interest in software development, especially in building applications using Java, Python, ReactJS, and MySQL.
               </motion.p>
               
               <motion.p variants={itemVariants}>
-                My journey began with a passion for storytelling through visual art. I've worked with 
-                Fortune 500 companies, startups, and creative agencies to deliver award-winning 
-                animations that drive engagement and results.
+                I have worked on projects like a full-stack Furniture Application, where I handled both frontend and backend concepts such as user authentication, database design, and inventory management. I also developed a Virtual Mouse project using Python, which helped me understand computer vision concepts and real-time input handling.
               </motion.p>
               
               <motion.p variants={itemVariants}>
-                From 3D character animation to explainer videos, I combine technical expertise with 
-                creative vision to produce animations that not only look stunning but also serve 
-                strategic business objectives.
+                I am a motivated learner, eager to start my career as a software developer, where I can apply my knowledge, learn continuously, and contribute to organizational growth.
               </motion.p>
             </motion.div>
 
