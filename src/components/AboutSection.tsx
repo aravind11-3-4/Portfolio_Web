@@ -73,9 +73,9 @@ const AboutSection: React.FC = () => {
                   transition={{ duration: 0.5, delay: 0.8 }}
                   className="text-3xl font-bold text-blue-600"
                 >
-                  150+
+                  5+
                 </motion.div>
-                <div className="text-gray-600 dark:text-gray-400">Projects Completed</div>
+                <div className="text-gray-600 dark:text-gray-400">GitHub Projects</div>
               </div>
               
               <div className="text-center">
@@ -85,9 +85,9 @@ const AboutSection: React.FC = () => {
                   transition={{ duration: 0.5, delay: 1 }}
                   className="text-3xl font-bold text-purple-600"
                 >
-                  50+
+                  4+
                 </motion.div>
-                <div className="text-gray-600 dark:text-gray-400">Happy Clients</div>
+                <div className="text-gray-600 dark:text-gray-400">Cetifications</div>
               </div>
               
               <div className="text-center">
@@ -97,22 +97,12 @@ const AboutSection: React.FC = () => {
                   transition={{ duration: 0.5, delay: 1.2 }}
                   className="text-3xl font-bold text-green-600"
                 >
-                  8+
+                  17+
                 </motion.div>
-                <div className="text-gray-600 dark:text-gray-400">Years Experience</div>
+                <div className="text-gray-600 dark:text-gray-400">Years Education</div>
               </div>
               
-              <div className="text-center">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={isInView ? { scale: 1 } : { scale: 0 }}
-                  transition={{ duration: 0.5, delay: 1.4 }}
-                  className="text-3xl font-bold text-pink-600"
-                >
-                  25+
-                </motion.div>
-                <div className="text-gray-600 dark:text-gray-400">Awards Won</div>
-              </div>
+              
             </motion.div>
           </motion.div>
 
